@@ -11,6 +11,7 @@ Learn how to set up a Python project in VS Code, including configuring a virtual
 
 ### 1. Set Up the Project
 
+
 1. **Create a Python folder:**
    - Open VS Code and go to `File > Open Folder`.
    - Create a folder named `python_project` and open it in VS Code.
