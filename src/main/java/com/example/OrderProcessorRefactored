@@ -1,0 +1,29 @@
+// في src/
+public class OrderProcessorRefactored {
+    public void processOrder(Order order) {
+        validateOrder(order);
+        System.out.println("Processing order for customer: " + order.getCustomer().getName());
+        System.out.println("Processing payment of $" + order.getPayment().getAmount());
+    }
+
+    public void processRefund(Order order) {
+        validateOrder(order);
+        System.out.println("Processing refund for customer: " + order.getCustomer().getName());
+        System.out.println("Refunding payment of $" + order.getPayment().getAmount());
+    }
+
+    private void validateOrder(Order order) {
+        if (order.getItems().isEmpty()) {
+            throw new IllegalArgumentException("Order must have at least one item");
+        }
+        if (order.getCustomer() == null) {
+            throw new IllegalArgumentException("Order must have a customer");
+        }
+        if (order.getPayment() == null) {
+            throw new IllegalArgumentException("Order must have a payment method");
+        }
+        if (order.getPayment().getAmount() <= 0) {
+            throw new IllegalArgumentException("Payment amount must be greater than 0");
+        }
+    }
+}
